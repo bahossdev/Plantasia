@@ -1,53 +1,90 @@
 const typeDefs = `
 
+type Blog {
+  _id: ID!
+  blogTitle: String!
+  blogText: String!
+  blogAuthor: String!
+  createdAt: String!
+  image: String
+  comments: [Comment]
+}
 
-  type Product {
-    _id: ID
-    name: String
-    description: String
-    image: String
-    quantity: Int
-    price: Float
-  }
+type Comment {
+  _id: ID!
+  commentText: String!
+  createdAt: String!
+}
 
-  type Order {
-    _id: ID
-    purchaseDate: String
-    products: [Product]
-  }
+type Plant {
+  _id: ID!
+  plantName: String!
+  description: String
+  image: String
+  careLevel: String!
+  waterLevel: String!
+  lightLevel: String!
+  size: String!
+  trait: String!
+}
 
-  type User {
-    _id: ID
-    firstName: String
-    lastName: String
-    email: String
-    orders: [Order]
-  }
+type Product {
+  _id: ID
+  name: String
+  description: String
+  image: String
+  quantity: Int
+  price: Float
+}
 
-  type Checkout {
-    session: ID
-  }
+type Order {
+  _id: ID
+  purchaseDate: String
+  products: [Product]
+}
 
-  type Auth {
-    token: ID
-    user: User
-  }
+type User {
+  _id: ID
+  firstName: String
+  lastName: String
+  email: String
+  orders: [Order]
+}
 
-  type Query {
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
-  }
+type Checkout {
+  session: ID
+}
 
-  type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
-  }
+type Auth {
+  token: ID
+  user: User
+}
+
+type Query {
+  blogs: [Blog]
+  blog(_id: ID!): Blog
+  plants: [Plant]
+  plant(_id: ID!): Plant
+  products(category: ID, name: String): [Product]
+  product(_id: ID!): Product
+  user: User
+  order(_id: ID!): Order
+  checkout(products: [ID]!): Checkout
+}
+
+type Mutation {
+  createBlog(blogTitle: String!, blogText: String!, blogAuthor: String!, image: String): Blog
+  updateBlog(_id: ID!, blogTitle: String, blogText: String, image: String): Blog
+  deleteBlog(_id: ID!): Blog
+  addComment(blogId: ID!, commentText: String!): Comment
+  deleteComment(blogId: ID!, commentId: ID!): Comment
+  addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+  addOrder(products: [ID]!): Order
+  updateUser(firstName: String, lastName: String, email: String, password: String): User
+  updateProduct(_id: ID!, quantity: Int!): Product
+  login(email: String!, password: String!): Auth
+}
 `;
+
 
 module.exports = typeDefs;
