@@ -56,7 +56,7 @@ db.once('open', async () => {
     lastName: 'McDonald',
     email: 'jack@abc.com',
     password: '123456',
-    plants: [plants[0]._id, plants[2]._id,]
+    plants: [plants[0], plants[2]]
   },
   {
     firstName: 'Catherine',
