@@ -15,9 +15,10 @@ const resolvers = {
       return await User.find()
         .select('-__v -password');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
-        .select('-__v -password');
+    user: async (parent, { email }) => {
+      return User.findOne({ email })
+        .select('-__v -password')
+        .populate('plants');
     },
 
     //User dashboard
@@ -152,13 +153,14 @@ const resolvers = {
     },
 
     //Add/remove plant to favourite list
-    addPlant: async (parent, { plantId }, context) => {
+    addPlant: async (parent, args, context) => {
+      console.log(args);
       if (context.user) {
-        return User.findOneAndUpdate(
+        const updatedUser =  User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
-              plants: { _id: plantId },
+              plants: { _id: args.plants },
             },
           },
           {
@@ -166,6 +168,8 @@ const resolvers = {
             runValidators: true,
           }
         );
+        console.log(updatedUser);
+        return updatedUser;
       }
       throw AuthenticationError;
     },
