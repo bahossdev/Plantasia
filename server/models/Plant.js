@@ -16,23 +16,23 @@ const plantSchema = new Schema({
   },
   careLevel: {
     type: String,
-    required: true,
+    // required: true,
   },
   waterLevel: {
     type: String,
-    required: true,
+    // required: true,
   },
   lightLevel: {
     type: String,
-    required: true,
+    // required: true,
   },
   size: {
     type: String,
-    required: true,
+    // required: true,
   },
   trait: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 
