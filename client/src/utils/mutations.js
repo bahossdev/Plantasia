@@ -50,5 +50,20 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_BLOG = gql`
+  mutation addBlog($blogTitle: String!, $blogText: String!, $blogAuthor: String!, $image: String) {
+    createBlog(blogTitle: $blogTitle, blogText: $blogText, blogAuthor: $blogAuthor, image: $image) {
+      _id
+      blogTitle
+      blogText
+      blogAuthor
+      image
+      createdAt
+    }
+  }
+`;
+
+
+
 // add plant
 // add blog 
