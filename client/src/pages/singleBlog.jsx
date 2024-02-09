@@ -7,7 +7,7 @@ import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_BLOG } from '../utils/queries';
 
-const SingleThought = () => {
+const SingleBlog = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { blogId } = useParams();
 
@@ -26,7 +26,7 @@ const SingleThought = () => {
       <h3 className="card-header bg-dark text-light p-2 m-0">
         {blog.blogAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
-          Created {blog.createdAt}
+          had this blog on {blog.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">

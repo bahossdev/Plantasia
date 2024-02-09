@@ -1,13 +1,12 @@
 import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
-// import PlantList from "./PlantList"
+import PlantList from "./PlantList"
 
-const Shop = () => {
+const Home = () => {
   return (
     <div className="container">
-
-      {/* <PlantList/> */}
+      <PlantList/>
       <CategoryMenu />
       <ProductList />
       <Cart />
@@ -15,4 +14,7 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+
+// the providers will eventually be called plantlist, blog, shop, and search 
+
+export default Home;
