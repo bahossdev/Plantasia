@@ -2,17 +2,6 @@ import React, { useState } from 'react';
 import SinglePlant from '../components/singleplant/index';
 import { plantss } from '../../../server/config/plantsData';
 
-
-// Assuming your seed data is stored in another file
-// import { plantss } from '../../../server/config/seeds';
-
-// const plantss = [
-//     { plantName: 'Cactus', image: 'cactus.jpg' },
-//     { plantName: 'Money Tree', image: 'money-tree.jpg'  },
-//     { plantName: 'Zamofilia', image: 'zamofilia.jpg'  }
-//   ]
-  
-
 const PlantList = () => {
     const [selectedPlant, setSelectedPlant] = useState(null);
   
@@ -49,25 +38,6 @@ const PlantList = () => {
         </div>
       );
   };
-  
 
-  
-
- 
-// const PlantList = () => {
-//   return (
-//     <div>
-//       <h1>Different plants 🌱</h1>
-//       <ul>
-//         {plantss.map((plant, index) => (
-//           <li key={index}>
-//             <h2>{plant.plantName}</h2>
-//             <img src={`/images/${plant.image}`} alt={plant.plantName} />
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
 
 export default PlantList;
