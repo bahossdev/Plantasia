@@ -33,7 +33,7 @@ function Login(props) {
     <div className="container my-1">
       <Link to="/signup">← Go to Signup</Link>
 
-      <h2>Login</h2>
+      <h2>Login here</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
@@ -57,11 +57,11 @@ function Login(props) {
         </div>
         {error ? (
           <div>
-            <p className="error-text">The provided credentials are incorrect</p>
+            <p className="error-text">Incorrect username or password!</p>
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">Login</button>
         </div>
       </form>
     </div>

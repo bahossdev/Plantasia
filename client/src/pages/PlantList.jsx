@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SinglePlant from '../components/SinglePlant/index';
-import { plantzzz } from '../../../server/config/plantzzz';
+import SinglePlant from '../components/singleplant/index';
+import { plantss } from '../../../server/config/plantsData';
 
 
 // Assuming your seed data is stored in another file
@@ -37,9 +37,9 @@ const PlantList = () => {
             <div>
               <h1>Different plants 🌱</h1>
               <ul>
-                {plantzzz.map((plant, index) => (
+                {plantss.map((plant, index) => (
                   <li key={index} onClick={() => handleClick(plant)} style={{ cursor: 'pointer' }}>
-                    <img src={`/images/${plant.image}`} alt={plant.plantName} className='card'/>
+                    <img src={`/images/${plant.image}`} alt={plant.plantName} />
                     <p>{plant.plantName}</p> {/* Render plant name */}
                   </li>
                 ))}

@@ -38,6 +38,8 @@ db.once('open', async () => {
     { plantName: 'Zamofilia', image: 'zamofilia.jpg'  }
   ]);
 
+  
+
   console.log('plants seeded 🌱');
 
   const users = await User.insertMany([{
@@ -80,3 +82,4 @@ db.once('open', async () => {
 
   process.exit();
 });
+
