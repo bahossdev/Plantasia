@@ -2,7 +2,7 @@ import React from 'react';
 
 const SinglePlant = ({ plant }) => {
   return (
-    <div>
+    <div className='card'>
       <h2>{plant.plantName}</h2>
       <img src={`/images/${plant.image}`} alt={plant.plantName} />
       {/* Check if description and price properties exist before rendering */}
