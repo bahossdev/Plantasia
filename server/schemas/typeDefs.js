@@ -21,11 +21,11 @@ type Plant {
   plantName: String!
   description: String
   image: String
-  careLevel: String!
-  waterLevel: String!
-  lightLevel: String!
-  size: String!
-  trait: String!
+  careLevel: String
+  waterLevel: String
+  lightLevel: String
+  size: String
+  trait: String
 }
 
 input PlantInput {
@@ -82,7 +82,7 @@ type Query {
   products(category: ID, name: String): [Product]
   product(_id: ID!): Product
   me: User
-  user: User
+  user(email: String!): User
   users: [User]
   order(_id: ID!): Order
   checkout(products: [ID]!): Checkout
@@ -102,7 +102,6 @@ type Mutation {
   login(email: String!, password: String!): Auth
 }
 `;
-
 
 module.exports = typeDefs;
 

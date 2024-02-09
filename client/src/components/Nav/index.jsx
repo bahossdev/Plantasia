@@ -1,5 +1,6 @@
-import Auth from "../../utils/auth";
+import React from 'react';
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
 function Nav() {
 
@@ -13,7 +14,11 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <Link to="/dashboard">
+              Dashboard
+            </Link>
+          </li>
+          <li className="mx-1">
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
@@ -40,16 +45,42 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
+      <div className="nav-links">
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <h1>
+            🌱 Plantasia 🪴
+          </h1>
         </Link>
-      </h1>
 
-      <nav>
+        <nav>
+          <ul className="flex-row">
+            <li className="mx-1">
+              <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/shop">
+                Shop
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/forum">
+                Forum
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/plantcare">
+                Plant Care
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div className="nav-items-right">
         {showNavigation()}
-      </nav>
+      </div>
     </header>
   );
 }

@@ -1,10 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
+  --primary: #233e33;
+  --secondary: #66cc4a;
+  --tertiary: #ac11b4;
   --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
+  --dark: #233e33;
+  --error: rgb(203, 153, 245);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
 }
@@ -42,10 +42,12 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  margin-bottom: 50px;
 }
 
 h2 {
   font-size: 2rem;
+  font-weight: 800;
 }
 
 h3 {
@@ -64,6 +66,10 @@ h6 {
   font-size: 1rem;
 }
 
+.nav-items-right {
+  margin-left: auto;
+}
+
 p {
   font-size: 1.1rem;
   margin-top: 0;
@@ -73,6 +79,7 @@ a {
   color: var(--tertiary);
   text-decoration: none;
   font-weight: bold;
+  font-size: large;
 }
 
 a:hover {
@@ -81,11 +88,57 @@ a:hover {
 
 header {
   background: var(--primary);
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 header a {
   color: var(--light);
 }
+
+.home-container {
+  padding: 40px;
+  display: flex;
+  gap: 25px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-card {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.303); */
+  /* background-blend-mode: soft-light; */
+}
+
+.home-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(1px);
+}
+
+.home-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  text-shadow: 3px 3px 5px #232F3E;
+  /* margin: 0; */
+  /* background-color: rgba(0, 0, 0, 0.287); */
+  z-index: 1;
+}
+
 
 button {
   font-size: 1rem;
@@ -205,6 +258,15 @@ input:focus {
 
 @media screen and (max-width: 768px) {
   .card {
+    width: 100%;
+  }
+
+  .home-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .home-card {
     width: 100%;
   }
 }
