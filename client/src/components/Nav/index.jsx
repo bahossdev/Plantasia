@@ -19,7 +19,6 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
@@ -46,38 +45,42 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
+      <div className="nav-links">
         <Link to="/">
-          🌱 Plantasia 🪴
+          <h1>
+            🌱 Plantasia 🪴
+          </h1>
         </Link>
-      </h1>
 
-      <nav>
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/">
-              Home
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/shop">
-              Shop
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/forum">
-              Forum
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/plantcare">
-              Plant Care
-            </Link>
-          </li>
-        </ul>
-      </nav>
+        <nav>
+          <ul className="flex-row">
+            <li className="mx-1">
+              <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/shop">
+                Shop
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/forum">
+                Forum
+              </Link>
+            </li>
+            <li className="mx-1">
+              <Link to="/plantcare">
+                Plant Care
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-      {showNavigation()}
+      <div className="nav-items-right">
+        {showNavigation()}
+      </div>
     </header>
   );
 }
