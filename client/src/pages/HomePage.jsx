@@ -8,21 +8,21 @@ function Home() {
                 <div className="home-card">
                     <Link to="/plantcare">
                         <h2 className="home-title">Plant Care</h2>
-                        <img src="./images/plantcare.jpg" alt="Plant Care" className="home-img" />
+                        <img src="./plantcare.jpg" alt="Plant Care" className="home-img" />
                     </Link>
                 </div>
 
                 <div className="home-card">
                     <Link to="/forum">
                         <h2 className="home-title">Forum</h2>
-                        <img src="./images/forum.jpg" alt="Forum" className="home-img" />
+                        <img src="./forum.jpg" alt="Forum" className="home-img" />
                     </Link>
                 </div>
 
                 <div className="home-card">
                     <Link to="/shop">
                         <h2 className="home-title">Shop</h2>
-                        <img src="./images/shop.jpg" alt="Shop" className="home-img" />
+                        <img src="./shop.jpg" alt="Shop" className="home-img" />
                     </Link>
                 </div>
             </div>

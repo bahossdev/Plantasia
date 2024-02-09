@@ -2,6 +2,8 @@
 const db = require('./connection');
 const { User, Product, Plant, Blog } = require('../models');
 const cleanDB = require('./cleanDB');
+const { plants } = require('./plants');
+const { products } = require('./products');
 
 db.once('open', async () => {
   await cleanDB('User', 'users');
@@ -9,26 +11,27 @@ db.once('open', async () => {
   await cleanDB('Plant', 'plants');
   await cleanDB('Blog', 'blogs');
   
-  const products = await Product.insertMany([
-    {
-      name: 'Planter',
-      image: 'planter.jpg',
-      price: 19.99,
-      quantity: 60
-    },
-    {
-      name: 'Gloves',
-      image: 'gloves.jpg',
-      price: 12.99,
-      quantity: 100
-    },
-    {
-      name: 'Watering Can',
-      image: 'watering-can.jpg',
-      price: 7.99,
-      quantity: 20
-    }
-  ]);
+  // const products = await Product.insertMany([
+  //   {
+  //     name: 'Planter',
+  //     image: 'planter.jpg',
+  //     price: 19.99,
+  //     quantity: 60
+  //   },
+  //   {
+  //     name: 'Gloves',
+  //     image: 'gloves.jpg',
+  //     price: 12.99,
+  //     quantity: 100
+  //   },
+  //   {
+  //     name: 'Watering Can',
+  //     image: 'watering-can.jpg',
+  //     price: 7.99,
+  //     quantity: 20
+  //   }
+  // ]);
+ await Product.insertMany(products);
 
   console.log('products seeded 🛍️');
 
@@ -37,7 +40,7 @@ db.once('open', async () => {
     { plantName: 'Money Tree', image: 'money-tree.jpg'  },
     { plantName: 'Zamofilia', image: 'zamofilia.jpg'  }
   ]);
-
+// await Plant.insertMany(plants)
   
 
   console.log('plants seeded 🌱');
