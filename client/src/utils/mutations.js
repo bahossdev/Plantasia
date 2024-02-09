@@ -49,3 +49,6 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// add plant
+// add blog 

@@ -14,4 +14,7 @@ const Home = () => {
   );
 };
 
+
+// the providers will eventually be called plantlist, blog, shop, and search 
+
 export default Home;
