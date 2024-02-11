@@ -1,11 +1,11 @@
 const {
   Blog,
-  Category,
   Order,
   Plant,
   Product,
   User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const { ObjectId } = require('mongodb');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
@@ -24,7 +24,10 @@ const resolvers = {
     //User dashboard
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        console.log(context.user)
+        const userData = await User.findOne({ _id: context.user._id })
+        .populate('plants');
+        return userData;
       }
       throw AuthenticationError;
     },
@@ -35,16 +38,14 @@ const resolvers = {
     },
     product: async (parent, { _id }) => {
       return await Product.findById(_id)
-      // .populate('category');
     },
 
     //Get all plants
     plants: async () => {
       return await Plant.find()
     },
-    plant: async (parent, { _id }) => {
-      return await Plant.findById(_id)
-      // .populate('category');
+    plant: async (parent, { plantName }) => {
+      return await Plant.findOne({plantName})
     },
 
     //Get all blogs and a single blog
@@ -156,11 +157,11 @@ const resolvers = {
     addPlant: async (parent, args, context) => {
       console.log(args);
       if (context.user) {
-        const updatedUser =  User.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
-              plants: { _id: args.plants },
+              plants: { _id: args.plantId },
             },
           },
           {
@@ -173,17 +174,22 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    removePlant: async (parent, { plantId }, context) => {
+    removePlant: async (parent, args, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
+        console.log(args);
+        const plantId = new ObjectId(args.plantId);
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $pull: {
-              plants: { _id: plantId },
+              // plants: { _id: args.plantId },
+              plants: plantId ,
             },
           },
           { new: true }
         );
+        console.log('Removed:', updatedUser);
+        return updatedUser;
       }
       throw AuthenticationError;
     },
@@ -255,6 +261,8 @@ const resolvers = {
 
     //Login
     login: async (parent, { email, password }) => {
+      console.log(context.user);
+      
       const user = await User.findOne({ email });
 
       if (!user) {

@@ -13,8 +13,10 @@ import Dashboard from './pages/Dashboard';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import PlantList from './pages/PlantList';
+import SinglePlant from './components/SinglePlant/index';
 import BlogList from './components/BlogList/index.jsx';
 // import SingleThought from './pages/SingleThought'; 
+
 
 
 const router = createBrowserRouter([
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
     error: <NoMatch />,
     children: [
       {
-        index: true, 
+        index: true,
         element: <HomePage />
       },
       {
@@ -51,10 +53,10 @@ const router = createBrowserRouter([
         path: '/plantcare',
         element: <PlantList />
       },
-      // {
-      //   path: '/allplants/:id',
-      //   element: <SinglePlant />
-      // },
+      {
+        path: '/plantcare/:plantName',
+        element: <SinglePlant />
+      },
       {
         path: '/orderHistory',
         element: <OrderHistory />
@@ -62,11 +64,11 @@ const router = createBrowserRouter([
       {
         path: '/products/:id',
         element: <Detail />
-       },
-       {
+      },
+      {
         path: '/forum',
         element: <BlogList />
-       }
+      }
       // {
       //   path: '/thoughts/:thoughtId',
       //   element: <SingleThought />
