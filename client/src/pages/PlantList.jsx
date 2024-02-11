@@ -1,43 +1,32 @@
-import React, { useState } from 'react';
-import SinglePlant from '../components/singleplant/index';
-import { plantss } from '../../../server/config/plantsData';
+import { useQuery } from '@apollo/client';
+import { QUERY_PLANTS } from '../utils/queries';
+import { Link } from 'react-router-dom';
+
 
 const PlantList = () => {
-    const [selectedPlant, setSelectedPlant] = useState(null);
-  
-    // Function to handle click event and set the selected plant
-    const handleClick = (plant) => {
-      setSelectedPlant(plant);
-    };
-  
-    const handleBack = () => {
-        setSelectedPlant(null); // Reset selectedPlant to null
-      };
+  const { loading, data, error } = useQuery(QUERY_PLANTS);
 
-      return (
-        <div>
-          {selectedPlant ? (
-            <div>
-              <h1>Selected plant 🌱</h1>
-              <SinglePlant plant={selectedPlant} />
-              <button onClick={handleBack}>Back to all plants</button>
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <div>
+      <div className="my-2">
+        <h2>Plant Care Information 🌱</h2>
+        <div className="flex-row ">
+          {data.plants.map((plant, index) => (
+            <div key={index} className='card animation' style={{ cursor: 'pointer' }}>
+              <Link to={`/plantcare/${plant.plantName}`}>
+                <img src={`/images/${plant.image}`} alt={plant.plantName} />
+                <p>{plant.plantName}</p>
+              </Link >
             </div>
-          ) : (
-            <div>
-              <h1>Different plants 🌱</h1>
-              <ul>
-                {plantss.map((plant, index) => (
-                  <li key={index} onClick={() => handleClick(plant)} style={{ cursor: 'pointer' }}>
-                    <img src={`/images/${plant.image}`} alt={plant.plantName} />
-                    <p>{plant.plantName}</p> {/* Render plant name */}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          )
           )}
         </div>
-      );
-  };
-
+      </div>
+    </div>
+  );
+};
 
 export default PlantList;

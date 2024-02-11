@@ -6,14 +6,10 @@ const Order = require('./Order');
 const Plant = require('./Plant');
 
 const userSchema = new Schema({
-  firstName: {
+  username: {
     type: String,
     required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
+    unique: true,
     trim: true
   },
   email: {
@@ -31,6 +27,12 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Plant',
+    },
+  ],
+  blogs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Blog',
     },
   ],
 });
