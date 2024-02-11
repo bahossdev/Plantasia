@@ -17,6 +17,7 @@ import BlogList from './components/BlogList/index.jsx';
 // import SingleThought from './pages/SingleThought'; 
 
 
+
 const router = createBrowserRouter([
   {
     path: '/',
