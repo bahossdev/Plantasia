@@ -93,12 +93,12 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
+        <h4>
+          <span role="img">
+            🍃
           </span>
-          You haven't added anything to your cart yet!
-        </h3>
+          Your cart is empty!
+        </h4>
       )}
     </div>
   );

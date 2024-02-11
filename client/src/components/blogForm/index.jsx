@@ -2,32 +2,38 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_COMMENT } from '../../utils/mutations';
-
-
+import { ADD_BLOG } from '../../utils/mutations';
+import { QUERY_BLOGS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const CommentForm = ({ blogId }) => {
-  const [commentText, setCommentText] = useState('');
+const BlogForm = () => {
+  const [blogText, setBlogText] = useState('');
+
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
+  const [addBlog, { error }] = useMutation
+  (ADD_BLOG, {
+    refetchQueries: [
+      QUERY_BLOGS,
+      'getBlogs',
+      QUERY_ME,
+      'me'
+    ]
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { data } = await addComment({
+      const { data } = await addBlog({
         variables: {
-          blogId,
-          commentText,
+          blogText,
           // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username 
-          commentAuthor: Auth.getProfile().authenticatedPerson.username
+          blogAuthor: Auth.getProfile().authenticatedPerson.username
         },
       });
 
-      setCommentText('');
+      setBlogText('');
     } catch (err) {
       console.error(err);
     }
@@ -36,15 +42,15 @@ const CommentForm = ({ blogId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'commentText' && value.length <= 280) {
-      setCommentText(value);
+    if (name === 'blogText' && value.length <= 280) {
+      setBlogText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h4>What are your blogs on this blog?</h4>
+      <h3>What's on your mind?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -54,7 +60,6 @@ const CommentForm = ({ blogId }) => {
             }`}
           >
             Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
           </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
@@ -62,9 +67,9 @@ const CommentForm = ({ blogId }) => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="commentText"
-                placeholder="Add your comment..."
-                value={commentText}
+                name="blogText"
+                placeholder="Here's a new blog..."
+                value={blogText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -73,9 +78,14 @@ const CommentForm = ({ blogId }) => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment
+                Add Blog
               </button>
             </div>
+            {error && (
+              <div className="col-12 my-3 bg-danger text-white p-3">
+                {error.message}
+              </div>
+            )}
           </form>
         </>
       ) : (
@@ -88,4 +98,4 @@ const CommentForm = ({ blogId }) => {
   );
 };
 
-export default CommentForm;
+export default BlogForm;

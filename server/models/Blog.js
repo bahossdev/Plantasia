@@ -13,7 +13,7 @@ const blogSchema = new Schema({
     type: String,
     required: 'You need to leave a blog!',
     minlength: 1,
-    maxlength: 280,
+    maxlength: 400,
     trim: true,
   },
   blogAuthor: {

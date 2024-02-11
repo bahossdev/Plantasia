@@ -28,18 +28,6 @@ type Plant {
   trait: String
 }
 
-input PlantInput {
-  _id: ID!
-  plantName: String!
-  description: String
-  image: String
-  careLevel: String!
-  waterLevel: String!
-  lightLevel: String!
-  size: String!
-  trait: String!
-}
-
 type Product {
   _id: ID
   name: String
@@ -57,8 +45,7 @@ type Order {
 
 type User {
   _id: ID
-  firstName: String
-  lastName: String
+  username: String
   email: String
   password: String
   orders: [Order]
@@ -78,7 +65,7 @@ type Query {
   blogs: [Blog]
   blog(_id: ID!): Blog
   plants: [Plant]
-  plant(_id: ID!): Plant
+  plant(plantName: String): Plant
   products(category: ID, name: String): [Product]
   product(_id: ID!): Product
   me: User
@@ -93,11 +80,11 @@ type Mutation {
   deleteBlog(_id: ID!): Blog
   addComment(blogId: ID!, commentText: String!): Comment
   deleteComment(blogId: ID!, commentId: ID!): Comment
-  addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-  updateUser(firstName: String, lastName: String, email: String, password: String): User  
+  addUser(username: String!, email: String!, password: String!): Auth
+  updateUser(username: String, email: String, password: String): User  
   addOrder(products: [ID]!): Order
-  addPlant(plants: ID!): User
-  removePlant(plants: ID!): User
+  addPlant(plantId: ID!): User
+  removePlant(plantId: ID!): User
   updateProduct(_id: ID!, quantity: Int!): Product
   login(email: String!, password: String!): Auth
 }
@@ -106,3 +93,16 @@ type Mutation {
 module.exports = typeDefs;
 
 // updateBlog(_id: ID!, blogTitle: String, blogText: String, image: String): Blog
+
+
+// input PlantInput {
+//   _id: ID!
+//   plantName: String!
+//   description: String
+//   image: String
+//   careLevel: String!
+//   waterLevel: String!
+//   lightLevel: String!
+//   size: String!
+//   trait: String!
+// }

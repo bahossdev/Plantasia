@@ -37,20 +37,19 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
-export const QUERY_CATEGORIES = gql`
-  {
-    categories {
-      _id
-      name
-    }
-  }
-`;
+// export const QUERY_CATEGORIES = gql`
+//   {
+//     categories {
+//       _id
+//       name
+//     }
+//   }
+// `;
 
 export const QUERY_USER = gql`
   {
     user {
-      firstName
-      lastName
+      username
       orders {
         _id
         purchaseDate
@@ -69,23 +68,40 @@ export const QUERY_USER = gql`
   export const QUERY_ME = gql`
   {
     user {
-      firstName
-      lastName
-      orders {
+      username
+      plants {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        name
+        image
       }
     }
   }
 `;
+
+// export const QUERY_ME = gql`
+// {
+//   user {
+//     username
+//     orders {
+//       _id
+//       purchaseDate
+//       products {
+//         _id
+//         name
+//         description
+//         price
+//         quantity
+//         image
+//       }
+//     }
+//     plants {
+//       _id
+//       name
+//       image
+//     }
+//   }
+// }
+// `;
 
 export const QUERY_BLOGS = gql`
   query getBlogs {
@@ -96,6 +112,38 @@ export const QUERY_BLOGS = gql`
       blogAuthor
       image
       createdAt
+    }
+  }
+`;
+
+export const QUERY_PLANTS = gql`
+  query getPlants {
+    plants {
+      _id
+      plantName
+      description
+      image
+      careLevel
+      waterLevel
+      lightLevel
+      size
+      trait
+    }
+  }
+`;
+
+export const QUERY_SINGLE_PLANT = gql`
+  query getSinglePlant ($plantName: String){
+    plant (plantName: $plantName){
+      _id
+      plantName
+      description
+      image
+      careLevel
+      waterLevel
+      lightLevel
+      size
+      trait
     }
   }
 `;
