@@ -11,9 +11,7 @@ export const plantBlogs = [
 
 { blogTitle: 'Decoding Plant Language: Understanding the Signs Your Houseplants Give', blogText: 'Plants communicate in their unique way, and in this blog, I decipher the cryptic messages our leafy friends send us. From yellowing leaves to sudden growth spurts, learn how to interpret and respond to the language of your home plants, fostering a healthier and happier indoor garden', blogAuthor: 'Deborah Banks', createdAt: '', image: ''},
 
-{ 
 
-}
 
 
 
