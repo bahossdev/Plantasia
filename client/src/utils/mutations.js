@@ -61,6 +61,14 @@ export const ADD_BLOG = gql`
   }
 `;
 
+export const DELETE_BLOG = gql`
+  mutation deleteBlog($blogId: ID!) {
+    deleteBlog(blogId: $blogId) {
+      _id
+    }
+  }
+`;
+
 export const ADD_PLANT = gql`
   mutation addPlant($plantId: ID!) {
     addPlant(plantId: $plantId){
@@ -83,18 +91,14 @@ export const REMOVE_PLANT = gql`
   }
   `;
 
-  export const ADD_COMMENT = gql`
-  mutation addComment($blogId: ID!, $commentText: String!) {
+export const ADD_COMMENT = gql`
+  mutation AddComment($blogId: ID!, $commentText: String!) {
     addComment(blogId: $blogId, commentText: $commentText) {
       _id
-      blogText
-      blogAuthor
+      commentText
       createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentAuthor
     }
   }
-`;
+  `;
+
