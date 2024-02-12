@@ -29,7 +29,7 @@ const BlogForm = () => {
         variables: {
           blogText,
           // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username 
-          blogAuthor: Auth.getProfile().authenticatedPerson.username
+          blogAuthor: Auth.getProfile().data.username
         },
       });
 

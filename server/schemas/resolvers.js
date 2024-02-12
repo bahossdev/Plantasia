@@ -15,18 +15,25 @@ const resolvers = {
       return await User.find()
         .select('-__v -password');
     },
-    user: async (parent, { email }) => {
-      return User.findOne({ email })
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
         .select('-__v -password')
         .populate('plants');
     },
 
-    //User dashboard
+    //User profile
     me: async (parent, args, context) => {
       if (context.user) {
-        console.log(context.user)
+        // console.log(context.user)
         const userData = await User.findOne({ _id: context.user._id })
-        .populate('plants');
+          // .populate('plants')
+          // .populate('blogs')
+          // .populate('products');
+          const plantData = await Plant.find({_id: {$in: userData.plants}});
+          userData.plants = plantData;
+          const blogData = await Blog.find({_id: {$in: userData.blogs}});
+          userData.blogs = blogData;
+          console.log(userData)
         return userData;
       }
       throw AuthenticationError;
@@ -45,7 +52,7 @@ const resolvers = {
       return await Plant.find()
     },
     plant: async (parent, { plantName }) => {
-      return await Plant.findOne({plantName})
+      return await Plant.findOne({ plantName })
     },
 
     //Get all blogs and a single blog
@@ -118,11 +125,10 @@ const resolvers = {
     },
 
     //Create and delete Blog
-    createBlog: async (parent, { blogText, blogTitle, image }, context) => {
+    createBlog: async (parent, { blogText, image }, context) => {
       if (context.user) {
         const blog = await Blog.create({
           blogText,
-          blogTitle,
           image,
           blogAuthor: context.user.username,
         });
@@ -156,6 +162,7 @@ const resolvers = {
     //Add/remove plant to favourite list
     addPlant: async (parent, args, context) => {
       console.log(args);
+      console.log(context.user)
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -183,7 +190,7 @@ const resolvers = {
           {
             $pull: {
               // plants: { _id: args.plantId },
-              plants: plantId ,
+              plants: plantId,
             },
           },
           { new: true }
@@ -260,17 +267,16 @@ const resolvers = {
     },
 
     //Login
-    login: async (parent, { email, password }) => {
-      console.log(context.user);
-      
-      const user = await User.findOne({ email });
+    login: async (parent, { email, password }, context) => {
 
+      const user = await User.findOne({ email });
+console.log(user)
       if (!user) {
         throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+console.log(correctPw)
       if (!correctPw) {
         throw AuthenticationError;
       }

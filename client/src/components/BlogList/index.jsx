@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_BLOGS } from '../../utils/queries';
+import BlogForm from '../BlogForm';
 
 const BlogList = ({ title, showTitle = true, showUsername = true }) => {
   const { loading, data } = useQuery(QUERY_BLOGS);
@@ -12,6 +13,7 @@ const BlogList = ({ title, showTitle = true, showUsername = true }) => {
 
   return (
     <div>
+      <BlogForm />
       {showTitle && <h3>{title}</h3>}
       {data.blogs.map((blog) => (
         <div key={blog._id} className="card mb-3">

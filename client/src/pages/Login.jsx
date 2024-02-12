@@ -14,10 +14,11 @@ function Login() {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+      // console.log(mutationResponse.data.login)
       const token = mutationResponse.data.login.token;
       Auth.login(token);
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
 

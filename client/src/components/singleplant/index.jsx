@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { QUERY_SINGLE_PLANT } from '../../utils/queries';
+import { QUERY_SINGLE_PLANT, QUERY_ME } from '../../utils/queries';
 import { ADD_PLANT } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
 
@@ -10,7 +10,8 @@ const SinglePlant = () => {
     variables: { plantName }
   });
   const [addPlant] = useMutation(ADD_PLANT);
-
+  const { loading: userLoading, data: userData } = useQuery(QUERY_ME);
+  const userPlants = userData?.me?.plants || [];
   const plant = data?.plant || {};
 
   console.log(plant);
@@ -22,6 +23,7 @@ const SinglePlant = () => {
       await addPlant({
         variables: { plantId: plant._id }
       });
+      window.location.reload();
       alert('Plant added to favourites!🪴');
     } catch (error) {
       console.error(error);
@@ -42,7 +44,12 @@ const SinglePlant = () => {
           {plant.trait && <p><strong>Traits: </strong>{plant.trait}</p>}
         </div>
       </div>
-      <button onClick={() => handleClick} > Add this plant to your favourites </button>
+      <button 
+      disabled={userPlants?.some((userPlant) => userPlant._id === plant._id)}
+      onClick={() => handleClick()} 
+      >{userPlants?.some((userPlant) => userPlant._id === plant._id)
+        ? 'This plant has already been added to your list!'
+        : 'Add this plant to your favourites!'}  </button>
 
       <Link to={`/plantcare/`}>
         <button >Back to all Plants</button>
