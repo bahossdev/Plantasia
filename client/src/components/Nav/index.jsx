@@ -43,46 +43,39 @@ function Nav() {
     }
   }
 
-  return (
-    <header className="flex-row px-1">
-      <div className="nav-links">
+ return (
+  <header className="flex-row px-1">
+    <div className="nav-links">
+      <div className="logo-container">
         <Link to="/">
           <h1>
-            🌱 Plantasia 🪴
+            <img src="./plantasialogo.png" alt="Plantasia logo" />
           </h1>
         </Link>
-
-        <nav>
-          <ul className="flex-row">
-            <li className="mx-1">
-              <Link to="/">
-                Home
-              </Link>
-            </li>
-            <li className="mx-1">
-              <Link to="/shop">
-                Shop
-              </Link>
-            </li>
-            <li className="mx-1">
-              <Link to="/forum">
-                Forum
-              </Link>
-            </li>
-            <li className="mx-1">
-              <Link to="/plantcare">
-                Plant Care
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
 
-      <div className="nav-items-right">
-        {showNavigation()}
-      </div>
-    </header>
-  );
+      <nav>
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/forum">Forum</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/plantcare">Plant Care</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div className="nav-items-right">{showNavigation()}</div>
+  </header>
+);
+
 }
 
 export default Nav;

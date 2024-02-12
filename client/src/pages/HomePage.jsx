@@ -7,22 +7,34 @@ function Home() {
             <div className='home-container'>
                 <div className="home-card">
                     <Link to="/plantcare">
-                        <h2 className="home-title">Plant Care</h2>
-                        <img src="./plantcare.jpg" alt="Plant Care" className="home-img" />
+                        <div className="image-container">
+                            <img src="./wateringcan.gif" alt="Plant Care" className="home-img" />
+                            <div className="overlay">
+                                <h2 className="home-title">Plant Care</h2>
+                            </div>
+                        </div>
                     </Link>
                 </div>
 
                 <div className="home-card">
                     <Link to="/forum">
-                        <h2 className="home-title">Forum</h2>
-                        <img src="./forum.jpg" alt="Forum" className="home-img" />
+                        <div className="image-container">
+                            <img src="./forumplant.gif" alt="Forum" className="home-img" />
+                            <div className="overlay">
+                                <h2 className="home-title">Forum</h2>
+                            </div>
+                        </div>
                     </Link>
                 </div>
 
                 <div className="home-card">
                     <Link to="/shop">
-                        <h2 className="home-title">Shop</h2>
-                        <img src="./shop.jpg" alt="Shop" className="home-img" />
+                        <div className="image-container">
+                            <img src="./plantshop.gif" alt="Shop" className="home-img" />
+                            <div className="overlay">
+                                <h2 className="home-title">Shop</h2>
+                            </div>
+                        </div>
                     </Link>
                 </div>
             </div>
@@ -30,4 +42,8 @@ function Home() {
     );
 }
 
+
+  
+
 export default Home;
+
