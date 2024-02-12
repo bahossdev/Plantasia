@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Nav from './components/Nav';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        <Nav />
+        <Header />
         <div className='main-container'>
         <Outlet />
         </div>
