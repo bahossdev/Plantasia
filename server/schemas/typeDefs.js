@@ -12,6 +12,7 @@ type Blog {
 type Comment {
   _id: ID!
   commentText: String!
+  commentAuthor: String
   createdAt: String!
 }
 
@@ -63,7 +64,7 @@ type Auth {
 
 type Query {
   blogs: [Blog]
-  blog(_id: ID!): Blog
+  blog(blogId: ID!): Blog
   plants: [Plant]
   plant(plantName: String): Plant
   products(category: ID, name: String): [Product]
@@ -77,8 +78,9 @@ type Query {
 
 type Mutation {
   createBlog( blogText: String!, blogAuthor: String!, image: String): Blog
-  deleteBlog(_id: ID!): Blog
-  addComment(blogId: ID!, commentText: String!): Comment
+  deleteBlog(blogId: ID!): Blog
+  addComment(blogId: ID!, commentText: String!, commentAuthor: String
+    ): [Comment]
   deleteComment(blogId: ID!, commentId: ID!): Comment
   addUser(username: String!, email: String!, password: String!): Auth
   updateUser(username: String, email: String, password: String): User  

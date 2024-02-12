@@ -15,7 +15,7 @@ const SinglePlant = () => {
   const plant = data?.plant || {};
 
   console.log(plant);
-  if (loading) return <p>Loading...</p>;
+  if (userLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const handleClick = async () => {
@@ -38,8 +38,8 @@ const SinglePlant = () => {
           <h2>{plant.plantName}</h2>
           {plant.description && <p><strong>Description: </strong>{plant.description}</p>}
           {plant.careLevel && <p><strong>Care Level: </strong>{plant.careLevel}</p>}
-          {plant.waterLevel && <p><strong>Watering: </strong>{plant.waterLevel}</p>}
-          {plant.lightLevel && <p><strong>Lighting: </strong>{plant.lightLevel}</p>}
+          {plant.waterLevel && <p><strong>💧: </strong>{plant.waterLevel}</p>}
+          {plant.lightLevel && <p><strong>☀️: </strong>{plant.lightLevel}</p>}
           {plant.size && <p><strong>Size: </strong>{plant.size}</p>}
           {plant.trait && <p><strong>Traits: </strong>{plant.trait}</p>}
         </div>

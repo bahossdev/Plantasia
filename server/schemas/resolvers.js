@@ -26,14 +26,11 @@ const resolvers = {
       if (context.user) {
         // console.log(context.user)
         const userData = await User.findOne({ _id: context.user._id })
-          // .populate('plants')
-          // .populate('blogs')
-          // .populate('products');
-          const plantData = await Plant.find({_id: {$in: userData.plants}});
-          userData.plants = plantData;
-          const blogData = await Blog.find({_id: {$in: userData.blogs}});
-          userData.blogs = blogData;
-          console.log(userData)
+        const plantData = await Plant.find({ _id: { $in: userData.plants } });
+        userData.plants = plantData;
+        const blogData = await Blog.find({ _id: { $in: userData.blogs } });
+        userData.blogs = blogData;
+        console.log(userData)
         return userData;
       }
       throw AuthenticationError;
@@ -59,18 +56,14 @@ const resolvers = {
     blogs: async () => {
       return await Blog.find();
     },
-    blog: async (parent, { _id }) => {
-      return await Blog.findById(_id)
+    blog: async (parent, { blogId }) => {
+      return await Blog.findById(blogId)
     },
 
     //Get all orders
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id)
-        // .populate({
-        //   path: 'orders.products',
-        //   populate: 'category'
-        // });
         return user.orders.id(_id);
       }
       throw AuthenticationError;
@@ -146,15 +139,15 @@ const resolvers = {
       if (context.user) {
         const blog = await Blog.findOneAndDelete({
           _id: blogId,
-          blogAuthor: context.user.username,
+          // blogAuthor: context.user.username,
         });
 
-        await User.findOneAndUpdate(
+        const updateUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { blogs: blog._id } }
         );
 
-        return blog;
+        return updateUser;
       }
       throw AuthenticationError;
     },
@@ -204,7 +197,7 @@ const resolvers = {
     //Add and delete Comment
     addComment: async (parent, { blogId, commentText }, context) => {
       if (context.user) {
-        return Blog.findOneAndUpdate(
+        const newComment = await Blog.findOneAndUpdate(
           { _id: blogId },
           {
             $addToSet: {
@@ -216,6 +209,8 @@ const resolvers = {
             runValidators: true,
           }
         );
+        console.log(newComment)
+        return newComment.comments;
       }
       throw AuthenticationError;
     },
@@ -270,13 +265,13 @@ const resolvers = {
     login: async (parent, { email, password }, context) => {
 
       const user = await User.findOne({ email });
-console.log(user)
+      console.log(user)
       if (!user) {
         throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
-console.log(correctPw)
+      console.log(correctPw)
       if (!correctPw) {
         throw AuthenticationError;
       }
