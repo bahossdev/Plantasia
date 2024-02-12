@@ -30,7 +30,7 @@ const SingleBlog = () => {
         </span>
       </h3>
       <div className="bg-light py-4">
-        <blockquote
+        {/* <blockquote
           className="p-4"
           style={{
             fontSize: '1.5rem',
@@ -39,8 +39,8 @@ const SingleBlog = () => {
             lineHeight: '1.5',
           }}
         >
+        </blockquote> */}
           {blog.blogText}
-        </blockquote>
       </div>
 
       <div className="my-5">

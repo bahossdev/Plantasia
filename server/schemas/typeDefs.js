@@ -2,7 +2,6 @@ const typeDefs = `
 
 type Blog {
   _id: ID!
-  blogTitle: String!
   blogText: String!
   blogAuthor: String!
   createdAt: String!
@@ -44,12 +43,13 @@ type Order {
 }
 
 type User {
-  _id: ID
-  username: String
-  email: String
-  password: String
+  _id: ID!
+  username: String!
+  email: String!
+  password: String!
   orders: [Order]
   plants: [Plant]
+  blogs: [Blog]
 }
 
 type Checkout {
@@ -69,14 +69,14 @@ type Query {
   products(category: ID, name: String): [Product]
   product(_id: ID!): Product
   me: User
-  user(email: String!): User
+  user(username: String!): User
   users: [User]
   order(_id: ID!): Order
   checkout(products: [ID]!): Checkout
 }
 
 type Mutation {
-  createBlog(blogTitle: String!, blogText: String!, blogAuthor: String!, image: String): Blog
+  createBlog( blogText: String!, blogAuthor: String!, image: String): Blog
   deleteBlog(_id: ID!): Blog
   addComment(blogId: ID!, commentText: String!): Comment
   deleteComment(blogId: ID!, commentId: ID!): Comment

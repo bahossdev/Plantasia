@@ -50,10 +50,9 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_BLOG = gql`
-  mutation addBlog($blogTitle: String!, $blogText: String!, $blogAuthor: String!, $image: String) {
-    createBlog(blogTitle: $blogTitle, blogText: $blogText, blogAuthor: $blogAuthor, image: $image) {
+  mutation addBlog($blogText: String!, $blogAuthor: String!, $image: String) {
+    createBlog( blogText: $blogText, blogAuthor: $blogAuthor, image: $image) {
       _id
-      blogTitle
       blogText
       blogAuthor
       image
@@ -68,7 +67,6 @@ export const ADD_PLANT = gql`
       username
       plants{
       _id
-      plantName
       }
     }
   }
@@ -80,9 +78,23 @@ export const REMOVE_PLANT = gql`
       username
       plants{
       _id
-      plantName
       }
     }
   }
   `;
 
+  export const ADD_COMMENT = gql`
+  mutation addComment($blogId: ID!, $commentText: String!) {
+    addComment(blogId: $blogId, commentText: $commentText) {
+      _id
+      blogText
+      blogAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;

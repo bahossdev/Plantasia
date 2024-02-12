@@ -9,13 +9,13 @@ import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import PlantList from './pages/PlantList';
 import SinglePlant from './components/SinglePlant/index';
 import BlogList from './components/BlogList/index.jsx';
-// import SingleThought from './pages/SingleThought'; 
+import SingleBlog from './pages/SingleBlog'; 
 
 
 
@@ -42,8 +42,12 @@ const router = createBrowserRouter([
         element: <Success />
       },
       {
-        path: '/dashboard',
-        element: <Dashboard />
+        path: '/me',
+        element: <Profile />
+      },
+      {
+        path: '/profiles/:username',
+        element: <Profile />
       },
       {
         path: '/shop',
@@ -68,11 +72,11 @@ const router = createBrowserRouter([
       {
         path: '/forum',
         element: <BlogList />
+      },
+      {
+        path: '/blogs/:blogAuthor',
+        element: <SingleBlog />
       }
-      // {
-      //   path: '/thoughts/:thoughtId',
-      //   element: <SingleThought />
-      // }
     ]
   }
 ]);

@@ -35,9 +35,9 @@ function App() {
     <ApolloProvider client={client}>
       <StoreProvider>
         <Nav />
-        {/* <div className='main-container'> */}
+        <div className='main-container'>
         <Outlet />
-        {/* </div> */}
+        </div>
         <Footer />
       </StoreProvider>
     </ApolloProvider>

@@ -7,12 +7,10 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-icons">
-                <a href="https://facebook.com"><FaFacebook /></a>
-                <a href="https://twitter.com"><FaSquareXTwitter /></a>
-                <a href="https://instagram.com"><FaInstagram /></a>
-            </div>
-            <div className="copyright">
-                <h4 className="footer">&copy; {new Date().getFullYear()} Plantasia</h4>
+                <h5>&copy; {new Date().getFullYear()} Plantasia</h5>
+                <a className="footer-icons" href="https://twitter.com"><FaSquareXTwitter /></a>
+                <a className="footer-icons" href="https://facebook.com"><FaFacebook /></a>
+                <a className="footer-icons" href="https://instagram.com"><FaInstagram /></a>
             </div>
         </footer>
     );
