@@ -8,11 +8,6 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          {/* <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li> */}
           <li className="mx-1">
             <Link to="/me">
               Profile
@@ -43,38 +38,32 @@ function Nav() {
     }
   }
 
- return (
-  <header className="flex-row px-1">
-    <div className="nav-links">
-      <div className="logo-container">
-        <Link to="/">
-          <h1>
-            <img src="./plantasialogo.png" alt="Plantasia logo" />
-          </h1>
-        </Link>
-      </div>
-
-      <nav>
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/shop">Shop</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/forum">Forum</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/plantcare">Plant Care</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div className="nav-items-right">{showNavigation()}</div>
-  </header>
-);
+  return (
+    <header className="flex-row px-1 nav-links">
+        <nav>
+          <div className="nav-items-left">
+            <ul className="flex-row">
+              <li className="mx-1">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="mx-1">
+                <Link to="/shop">Shop</Link>
+              </li>
+              <li className="mx-1">
+                <Link to="/forum">Forum</Link>
+              </li>
+              <li className="mx-1">
+                <Link to="/plantcare">Plant Care</Link>
+              </li>
+              <li className="mx-1">
+                <Link to="/guide">Guide</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="nav-items-right">{showNavigation()}</div>
+        </nav>
+    </header>
+  );
 
 }
 

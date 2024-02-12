@@ -11,8 +11,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
 import PlantList from './pages/PlantList';
+import Guide from './pages/Guide';
 import SinglePlant from './components/SinglePlant/index';
 import BlogList from './components/BlogList/index.jsx';
 import SingleBlog from './pages/SingleBlog'; 
@@ -62,12 +62,12 @@ const router = createBrowserRouter([
         element: <SinglePlant />
       },
       {
-        path: '/orderHistory',
-        element: <OrderHistory />
-      },
-      {
         path: '/products/:id',
         element: <Detail />
+      },
+      {
+        path: '/guide',
+        element: <Guide />
       },
       {
         path: '/forum',
