@@ -258,8 +258,6 @@ button[disabled] {
   opacity: .8;
 }
 
-
-
 img {
   max-width: 100%;
 }
@@ -402,6 +400,11 @@ input:focus {
 
 .gif:hover {
   cursor: pointer;
+}
+
+.png {
+  width: 25px;
+  height: 32px;
 }
 
 .plant-card img {
