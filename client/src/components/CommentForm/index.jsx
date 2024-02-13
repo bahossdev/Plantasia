@@ -24,6 +24,7 @@ const CommentForm = ({ blogId }) => {
       });
 
       setCommentText('');
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }

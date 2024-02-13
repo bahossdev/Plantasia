@@ -41,13 +41,13 @@ const SinglePlant = () => {
           <h2>{plant.plantName}</h2>
           {plant.description && <p><strong>Description: </strong>{plant.description}</p>}
           {plant.careLevel && <p><strong>Care Level: </strong>{plant.careLevel}</p>}
-          {plant.waterLevel && <p><strong>💧: </strong>{plant.waterLevel}</p>}
-          {plant.lightLevel && <p><strong>☀️: </strong>{plant.lightLevel}</p>}
+          {plant.waterLevel && <p><strong><img src='/waterdroplet.png' className='png'/>: </strong>{plant.waterLevel}</p>}
+          {plant.lightLevel && <p><strong><img src='/sun.png' className='png'/>: </strong>{plant.lightLevel}</p>}
           {plant.size && <p><strong>Size: </strong>{plant.size}</p>}
           {plant.trait && <p><strong>Traits: </strong>{plant.trait}</p>}
         </div>
       </div>
-        <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? '/addplantgrey.jpg' : '/addPlantActive.gif'}/> 
+        <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? '/addplantgrey.png' : '/addPlantActive.gif'}/> 
 
       <Link to={`/plantcare/`}>
       <img className='gif' src= {'/previouspage.gif'} /> Back to all Plants 

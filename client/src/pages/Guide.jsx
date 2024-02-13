@@ -1,7 +1,7 @@
 
 function Guide() {
   return (
-    <div>
+    <div className="flex-row">
       <section>
         <h2>Regular Watering</h2>
         <p>

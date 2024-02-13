@@ -34,6 +34,8 @@ const BlogForm = () => {
       });
 
       setBlogText('');
+      window.location.reload();
+
     } catch (err) {
       console.error(err);
     }
