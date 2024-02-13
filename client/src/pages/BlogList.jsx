@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_BLOGS } from '../../utils/queries';
-import BlogForm from '../BlogForm';
+import { QUERY_BLOGS } from '../utils/queries';
+import BlogForm from '../components/BlogForm';
 
 const BlogList = ({  showUsername = true }) => {
   const { loading, data } = useQuery(QUERY_BLOGS);
