@@ -383,8 +383,18 @@ input:focus {
   margin-bottom: 20px;
 }
 
+.transparent {
+  width: 15rem;
+  margin: 20px;
+}
 
-
+.trans {
+  background-color: #fafafa00;
+}
+.transparent-shop {
+  width: 12rem;
+  margin: 20px;
+}
 .animation {
   margin: 20px;
   box-shadow: 2px 2px 4px #233e33;
@@ -396,8 +406,8 @@ input:focus {
 }
 
 .gif {
-  width: 35px;
-  height: 40px;
+  width: 45px;
+  height: 57px;
 }
 
 .gif:hover {
@@ -409,6 +419,12 @@ input:focus {
   height: 32px;
 }
 
+.card-icon {
+  padding: 10px;
+  margin: 25px;
+  /* background-color: grey; */
+  background-image: '/paper.png';
+}
 .plant-card img {
   max-width: 200px;
   height: auto;

@@ -15,7 +15,7 @@ const PlantList = () => {
         <h2>Plant Care Information 🌱</h2>
         <div className="flex-row ">
           {data.plants.map((plant, index) => (
-            <div key={index} className='card animation' style={{ cursor: 'pointer' }}>
+            <div key={index} className='transparent' style={{ cursor: 'pointer' }}>
               <Link to={`/plantcare/${plant.plantName}`}>
                 <img src={`/images/${plant.image}`} alt={plant.plantName} />
                 <p>{plant.plantName}</p>
