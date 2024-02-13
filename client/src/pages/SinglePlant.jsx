@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { QUERY_SINGLE_PLANT, QUERY_ME } from '../../utils/queries';
-import { ADD_PLANT } from '../../utils/mutations';
+import { QUERY_SINGLE_PLANT, QUERY_ME } from '../utils/queries';
+import { ADD_PLANT } from '../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
-import addPlantGif from '../../assets/addPlant.gif'
-import addPlantJpg from '../../assets/addPlant.jpg'
-import backGif from '../../assets/previouspage.gif'
+import addPlantGif from '../assets/addPlant.gif'
+import addPlantJpg from '../assets/addPlant.jpg'
+import backGif from '../assets/previouspage.gif'
 
 const SinglePlant = () => {
   let { plantName } = useParams();
@@ -50,7 +50,7 @@ const SinglePlant = () => {
         <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? addPlantJpg : addPlantGif}/> 
 
       <Link to={`/plantcare/`}>
-      <button><img className='gif' src= {backGif} /> Back to all Plants </button>
+      <img className='gif' src= {backGif} /> Back to all Plants 
       </Link >
     </>
 
