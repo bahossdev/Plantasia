@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_BLOGS } from '../../utils/queries';
 import BlogForm from '../BlogForm';
 
-const BlogList = ({ title, showTitle = true, showUsername = true }) => {
+const BlogList = ({  showUsername = true }) => {
   const { loading, data } = useQuery(QUERY_BLOGS);
   
   if (loading) return <p>Loading...</p>;
@@ -14,20 +14,16 @@ const BlogList = ({ title, showTitle = true, showUsername = true }) => {
   return (
     <div>
       <BlogForm />
-      {showTitle && <h3>{title}</h3>}
+      <div>
       {data.blogs.map((blog) => (
         <div key={blog._id} className="card mb-3">
           <h4 className="card-header bg-primary text-light p-2 m-0">
+              
             {showUsername ? (
-              <Link
-                className="text-light"
-                to={`/profiles/${blog.blogAuthor}`}
-              >
-                {blog.blogAuthor} <br />
+                <p>{blog.blogAuthor} <br />
                 <span style={{ fontSize: '1rem' }}>
                   had this blog on {blog.createdAt}
-                </span>
-              </Link>
+                </span></p>
             ) : (
               <>
                 <span style={{ fontSize: '1rem' }}>
@@ -46,7 +42,9 @@ const BlogList = ({ title, showTitle = true, showUsername = true }) => {
             Join the discussion on this blog.
           </Link>
         </div>
+        
       ))}
+      </div>
     </div>
   );
 };

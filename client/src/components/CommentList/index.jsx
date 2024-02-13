@@ -1,8 +1,31 @@
-const CommentList = ({ comments = [] }) => {
+import garbagecanGif from '../../assets/garbagecan.gif'
+import Auth from '../../utils/auth';
+import { DELETE_COMMENT } from '../../utils/mutations';
+import { useQuery, useMutation } from '@apollo/client';
+
+
+const CommentList = ({ comments = [], blogId }) => {
+  const [deleteComment, { error }] = useMutation(DELETE_COMMENT);
+
     if (!comments.length) {
       return <h3>No Comments Yet</h3>;
     }
+    const handleDeleteComment = async ( commentId) => {
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
   
+      if (!token) {
+        return false;
+      }
+      try {
+        await deleteComment({
+          variables: { blogId, commentId }
+        })
+        window.location.reload();
+  
+      } catch (err) {
+        console.error(err);
+      }
+    };
     return (
       <>
         <h3
@@ -14,6 +37,7 @@ const CommentList = ({ comments = [] }) => {
         <div className="flex-row my-4">
           {comments &&
             comments.map((comment) => (
+              <>
               <div key={comment._id} className="col-12 mb-3 pb-3">
                 <div className="p-3 bg-dark text-light">
                   <h5 className="card-header">
@@ -25,6 +49,8 @@ const CommentList = ({ comments = [] }) => {
                   <p className="card-body">{comment.commentText}</p>
                 </div>
               </div>
+              {Auth.loggedIn() && Auth.getProfile().data.username === comment.commentAuthor ? <img className='gif' src={garbagecanGif} data-id={comment._id} onClick={(e) => handleDeleteComment(e.target.dataset.id)} /> : ''}
+              </>
             ))}
         </div>
       </>

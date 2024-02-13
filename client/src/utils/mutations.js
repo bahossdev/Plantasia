@@ -102,3 +102,10 @@ export const ADD_COMMENT = gql`
   }
   `;
 
+  export const DELETE_COMMENT = gql`
+  mutation deleteComment($blogId: ID!, $commentId: ID!) {
+    deleteComment(blogId: $blogId, commentId: $commentId) {
+      _id
+    }
+  }
+  `;

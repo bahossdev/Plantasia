@@ -39,6 +39,7 @@ export const QUERY_USER = gql`
       plants {
         _id
         plantName
+        image
       }
       blogs {
         _id
