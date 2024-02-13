@@ -14,9 +14,9 @@ const BlogList = ({  showUsername = true }) => {
   return (
     <div>
       <BlogForm />
-      <div>
+      <div className='blog-list'>
       {data.blogs.map((blog) => (
-        <div key={blog._id} className="card mb-3">
+        <div key={blog._id} className="card-icon">
           <h4 className="card-header bg-primary text-light p-2 m-0">
               
             {showUsername ? (

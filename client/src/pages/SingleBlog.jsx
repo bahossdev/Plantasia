@@ -20,7 +20,7 @@ console.log(blogId)
   if (error) {return <p>Error: {error.message}</p>};
 
   return (
-    <div className="my-3">
+    <div className="card-icon">
       <h3>
         {blog.blogAuthor} <br />
         <span style={{ fontSize: '1rem' }}>

@@ -28,7 +28,6 @@ const BlogForm = () => {
       const { data } = await addBlog({
         variables: {
           blogText,
-          // Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username 
           blogAuthor: Auth.getProfile().data.username
         },
       });
@@ -51,7 +50,7 @@ const BlogForm = () => {
   };
 
   return (
-    <div>
+    <div className='card-icon'>
       <h3>What's on your mind?</h3>
 
       {Auth.loggedIn() ? (
@@ -79,8 +78,8 @@ const BlogForm = () => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Blog
+              <button className="trans" type="submit">
+              <img src='/writeblog.gif' className='gif' />
               </button>
             </div>
             {error && (

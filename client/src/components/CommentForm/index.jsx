@@ -40,7 +40,7 @@ const CommentForm = ({ blogId }) => {
   };
 
   return (
-    <div>
+    <div className='comment-card'>
       <h4>What are your blogs on this blog?</h4>
 
       {Auth.loggedIn() ? (
@@ -69,8 +69,8 @@ const CommentForm = ({ blogId }) => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment
+              <button type="submit" className='trans'>
+              < img src='/commentcomment.gif' type="submit" className='gif' />
               </button>
             </div>
           </form>
