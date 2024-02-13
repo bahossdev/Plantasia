@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { QUERY_SINGLE_PLANT, QUERY_ME } from '../utils/queries';
 import { ADD_PLANT } from '../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
-// import addPlantGif from '/addPlant.gif'
-// import addPlantJpg from '/addPlant.jpg'
+// import addPlantGif from '/addPlantActive.gif'
+// import addPlantJpg from '/addplantgrey.jpg'
 // import backGif from '/previouspage.gif'
 
 const SinglePlant = () => {
@@ -47,7 +47,7 @@ const SinglePlant = () => {
           {plant.trait && <p><strong>Traits: </strong>{plant.trait}</p>}
         </div>
       </div>
-        <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? '/addPlant.jpg' : '/addPlant.gif'}/> 
+        <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? '/addplantgrey.jpg' : '/addPlantActive.gif'}/> 
 
       <Link to={`/plantcare/`}>
       <img className='gif' src= {'/previouspage.gif'} /> Back to all Plants 
