@@ -8,9 +8,10 @@ const Footer = () => {
         <footer>
             <div className="footer-icons">
                 <h5>&copy; {new Date().getFullYear()} Plantasia</h5>
-                <a className="footer-icons" href="https://twitter.com"><FaSquareXTwitter /></a>
+                {/* <a className="footer-icons" href="https://twitter.com"><FaSquareXTwitter /></a>
                 <a className="footer-icons" href="https://facebook.com"><FaFacebook /></a>
-                <a className="footer-icons" href="https://instagram.com"><FaInstagram /></a>
+                <a className="footer-icons" href="https://instagram.com"><FaInstagram /></a> */}
+                <img src='./socialmedia.gif' className='gif'/>
             </div>
         </footer>
     );
