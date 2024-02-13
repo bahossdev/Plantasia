@@ -72,11 +72,11 @@ function Profile() {
   return (
     <div className="profile-container">
       <h2>Welcome, {userData?.username}!</h2>
-      <div className='fav-plants'>
+      <div className='transparent'>
         <h3>Favorite Plants</h3>
         <div className="flex-row">
           {userData?.plants?.map((plant) => (
-            <div className="card" key={plant._id}><img src={`/images/${plant.image}`} /> {plant.plantName}
+            <div className="transparent" key={plant._id}><img src={`/images/${plant.image}`} /> {plant.plantName}
               {!userParam ? 
               <img className='gif' src={garbagecanGif} data-id={plant._id} onClick={(e) => handleRemovePlant(e.target.dataset.id)} /> : ''}
             </div>
@@ -89,7 +89,7 @@ function Profile() {
         <h3>My Blogs</h3>
         <div className="flex-row">
           {userData?.blogs?.map((blog) => (
-            <div className="card" key={blog._id}>{blog.blogText}
+            <div className="card-icon" key={blog._id}>{blog.blogText}
               {!userParam ? 
               <img className='gif' src={noteDeleteGif} data-id={blog._id} onClick={(e) => handleDeleteBlog(e.target.dataset.id)} /> : ''}
             </div>

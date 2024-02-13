@@ -50,7 +50,7 @@ const BlogForm = () => {
   };
 
   return (
-    <div>
+    <div className='card-icon'>
       <h3>What's on your mind?</h3>
 
       {Auth.loggedIn() ? (

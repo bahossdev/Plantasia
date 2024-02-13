@@ -34,7 +34,7 @@ const CommentList = ({ comments = [], blogId }) => {
         >
           Comments
         </h3>
-        <div className="flex-row my-4">
+        <div className="comment-card">
           {comments &&
             comments.map((comment) => (
               <>

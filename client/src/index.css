@@ -12,7 +12,16 @@
 
 * {
   color: black;
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
+/* .abel-regular {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 
 @keyframes hoverAnimation {
   0% {
@@ -73,7 +82,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  /* font-family: 'Rubik', sans-serif; */
   font-weight: 500;
   margin: 15px;
   line-height: 1.25;
@@ -86,7 +95,9 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 900;
+  margin-left: 20px;
+
 }
 
 h3 {
@@ -358,6 +369,19 @@ input:focus {
   flex-direction: column;
   width: 90%;
 }
+textarea {
+  width: 300px;
+  height: 200px;
+}
+
+.comment-card {
+  border:  2px solid rgba(54, 90, 61, 0.668);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(207, 220, 207, 0.912);
+  font-style: italic;
+}
 
 .card {
   width: 30%;
@@ -420,11 +444,15 @@ input:focus {
 }
 
 .card-icon {
-  padding: 10px;
+  border:  3px solid rgba(36, 58, 40, 0.668);
+  border-radius: 8px;
+  padding: 30px;
   margin: 25px;
-  /* background-color: grey; */
-  background-image: '/paper.png';
+  background-color: rgba(204, 231, 204, 0.912);
+  /* background-image: url('../assets/paper.png');
+  z-index: 3; */
 }
+
 .plant-card img {
   max-width: 200px;
   height: auto;
@@ -468,7 +496,6 @@ footer {
   justify-content: center;
   align-items: center;
   box-shadow: 1px -3px 6px rgba(47, 100, 57, 0.668);
-  ;
   z-index: 2;
 }
 

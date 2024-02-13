@@ -40,7 +40,7 @@ const CommentForm = ({ blogId }) => {
   };
 
   return (
-    <div>
+    <div className='comment-card'>
       <h4>What are your blogs on this blog?</h4>
 
       {Auth.loggedIn() ? (
