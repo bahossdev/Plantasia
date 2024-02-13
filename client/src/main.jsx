@@ -13,9 +13,9 @@ import Profile from './pages/Profile';
 import Success from './pages/Success';
 import PlantList from './pages/PlantList';
 import Guide from './pages/Guide';
-import Hello from './components/Hello/index';
+import SinglePlant from './components/SinglePlant/index';
 import BlogList from './components/BlogList/index.jsx';
-import Good from './pages/Good'; 
+import SingleBlog from './pages/SingleBlog'; 
 
 
 
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/plantcare/:plantName',
-        element: <Hello />
+        element: <SinglePlant />
       },
       {
         path: '/products/:id',
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogs/:blogId',
-        element: <Good />
+        element: <SingleBlog />
       }
     ]
   }
