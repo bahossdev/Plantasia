@@ -16,7 +16,7 @@ import Guide from './pages/Guide';
 import SinglePlant from './pages/SinglePlant';
 import BlogList from './pages/BlogList';
 import SingleBlog from './pages/SingleBlog'; 
-
+import Footer from './components/Footer'
 
 
 const router = createBrowserRouter([
