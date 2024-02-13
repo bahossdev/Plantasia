@@ -13,8 +13,8 @@ import Profile from './pages/Profile';
 import Success from './pages/Success';
 import PlantList from './pages/PlantList';
 import Guide from './pages/Guide';
-import SinglePlant from './components/SinglePlant';
-import BlogList from './components/BlogList';
+import SinglePlant from './components/SinglePlant/index.jsx';
+import BlogList from './components/BlogList/index.jsx';
 import SingleBlog from './pages/SingleBlog'; 
 
 

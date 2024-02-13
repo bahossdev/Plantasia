@@ -47,12 +47,6 @@ const SinglePlant = () => {
           {plant.trait && <p><strong>Traits: </strong>{plant.trait}</p>}
         </div>
       </div>
-      {/* <button 
-      disabled={userPlants?.some((userPlant) => userPlant._id === plant._id)}
-      onClick={() => handleClick()} 
-      >{userPlants?.some((userPlant) => userPlant._id === plant._id)
-        ? 'This plant has already been added to your list!'
-        : 'Add this plant to your favourites!'}  </button> */}
         <img className='gif' onClick={() => handleClick()} src={userPlants?.some((userPlant) => userPlant._id === plant._id) ? addPlantJpg : addPlantGif}/> 
 
       <Link to={`/plantcare/`}>
