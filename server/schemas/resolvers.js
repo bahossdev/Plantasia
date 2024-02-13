@@ -54,7 +54,9 @@ const resolvers = {
 
     //Get all blogs and a single blog
     blogs: async () => {
-      return await Blog.find();
+      const blogsData = await Blog.find();
+      console.log(blogsData[0].comments);
+      return blogsData;
     },
     blog: async (parent, { blogId }) => {
       return await Blog.findById(blogId)

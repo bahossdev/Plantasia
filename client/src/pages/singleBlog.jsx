@@ -31,7 +31,7 @@ console.log(blogId)
         {blog.blogText}
       </div>
       <div className="my-5">
-        <CommentList comments={blog.comments} />
+        <CommentList comments={blog.comments} blogId={blog._id}/>
       </div>
       <div className="m-3 p-4" >
         <CommentForm blogId={blog._id} />

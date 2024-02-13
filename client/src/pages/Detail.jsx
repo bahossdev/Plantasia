@@ -1,5 +1,4 @@
-// this doesn't need to be changed 
-
+import purchaseGif from '../assets/purchaseclick.gif'
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -86,28 +85,30 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
+        <div className="container card my-1">
           <Link to="/shop">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
 
+          <img
+            src={`/images/${currentProduct.image}`}
+            alt={currentProduct.name}
+          />
           <p>{currentProduct.description}</p>
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
+            </p>
+            <img src={purchaseGif} onClick={addToCart} className='gif' />
+
             <button
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
             </button>
-          </p>
+            
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}

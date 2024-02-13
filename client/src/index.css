@@ -106,9 +106,11 @@ h6 {
 }
 
 nav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .nav-links ul {
   list-style: none;
 }
@@ -166,6 +168,7 @@ header a {
 }
 
 .nav-container {
+  width: 100%;
   position: absolute;
   bottom: 0;
 }
@@ -255,6 +258,8 @@ button[disabled] {
   opacity: .8;
 }
 
+
+
 img {
   max-width: 100%;
 }
@@ -282,7 +287,7 @@ input:focus {
 }
 
 .container {
-  width: 40%;
+  width: 80%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -342,11 +347,18 @@ input:focus {
 }
 
 .main-container {
+  /* width: 100%; */
   display: flex;
   margin-bottom: 70px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 .card {
@@ -381,6 +393,15 @@ input:focus {
 .animation:hover {
   animation: hoverAnimation 0.5s ease;
   box-shadow: 5px 5px 4px #233e33;
+}
+
+.gif {
+  width: 35px;
+  height: 40px;
+}
+
+.gif:hover {
+  cursor: pointer;
 }
 
 .plant-card img {
@@ -425,7 +446,8 @@ footer {
   display: block;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px -3px 6px rgba(47, 100, 57, 0.668);;
+  box-shadow: 1px -3px 6px rgba(47, 100, 57, 0.668);
+  ;
   z-index: 2;
 }
 
@@ -463,5 +485,19 @@ footer {
 
   .plant-card {
     flex-direction: column;
+  }
+
+  nav {
+    align-items: flex-end;
+  }
+
+  nav a {
+    font-size: 0.7rem;
+  }
+
+  .nav-items-left ul,
+  .nav-items-right ul {
+    margin: 0;
+    padding: 0;
   }
 }
