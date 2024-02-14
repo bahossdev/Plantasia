@@ -10,7 +10,7 @@ function Home() {
                         <div className="image-container">
                             <img src="./wateringcan.gif" alt="Plant Care" className="home-img" />
                             <div className="overlay">
-                                <h2 className="home-title">Plant Care</h2>
+                                <h3 className="home-title">Plant Care</h3>
                             </div>
                         </div>
                     </Link>
@@ -21,7 +21,7 @@ function Home() {
                         <div className="image-container">
                             <img src="./forumplant.gif" alt="Forum" className="home-img" />
                             <div className="overlay">
-                                <h2 className="home-title">Forum</h2>
+                                <h3 className="home-title">Forum</h3>
                             </div>
                         </div>
                     </Link>
@@ -32,7 +32,7 @@ function Home() {
                         <div className="image-container">
                             <img src="./plantshop.gif" alt="Shop" className="home-img" />
                             <div className="overlay">
-                                <h2 className="home-title">Shop</h2>
+                                <h3 className="home-title">Shop</h3>
                             </div>
                         </div>
                     </Link>
