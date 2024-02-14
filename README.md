@@ -6,7 +6,7 @@
 [![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
 [![Apollo Client](https://img.shields.io/badge/Apollo_Client-311C87?style=for-the-badge&logo=apollo&logoColor=white)](https://www.apollographql.com/docs/react/)
 [![Apollo GraphQL](https://img.shields.io/badge/Apollo_Server-8B89CC?style=for-the-badge&logo=apollo-graphql&logoColor=white)](https://www.apollographql.com/docs/apollo-server/)
-[![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)](https://graphql.org/){:target="_blank"}
+[![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)](https://graphql.org/)
 [![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)](https://mongoosejs.com/)
 
 Plantasia is a comprehensive platform dedicated to plant enthusiasts, offering plant care information, a vibrant community forum, an integrated store for gardening needs, and an immersive experience inspired by Mort Garson's 1976 album "Mother Earth’s Plantasia".
