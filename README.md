@@ -93,3 +93,8 @@ Plantasia is deployed on [Render](https://plantasia.onrender.com/).
 If you have any questions or feedback, feel free to contact us at [John](mailto:jwatsoncodes@gmail.com), [Michael](mramcharitar2@gmail.com), and [Bahar](mailto:bahossdev@gmail.com).
 
 ## Screenshot
+![screenshot1](https://github.com/bahossdev/Plantasia/assets/148646212/a6e706d3-467a-4bf2-893e-9d290eb25b0a)
+![screenshot2](https://github.com/bahossdev/Plantasia/assets/148646212/5614f7f6-1219-43f8-8b8c-8c86a07a57d6)
+![screenshot3](https://github.com/bahossdev/Plantasia/assets/148646212/b6a49401-fc5e-4874-8af6-ddad72d3d01b)
+
+
