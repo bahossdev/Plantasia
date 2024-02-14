@@ -18,7 +18,7 @@ const PlantList = () => {
             <div key={index} className='transparent' style={{ cursor: 'pointer' }}>
               <Link to={`/plantcare/${plant.plantName}`}>
                 <img src={`/images/${plant.image}`} alt={plant.plantName} />
-                <p>{plant.plantName}</p>
+                <p className='justify-center'>{plant.plantName}</p>
               </Link >
             </div>
           )

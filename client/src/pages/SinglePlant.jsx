@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { QUERY_SINGLE_PLANT, QUERY_ME } from '../utils/queries';
 import { ADD_PLANT } from '../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
-// import addPlantGif from '/addPlantActive.gif'
-// import addPlantJpg from '/addplantgrey.jpg'
-// import backGif from '/previouspage.gif'
 
 const SinglePlant = () => {
   let { plantName } = useParams();

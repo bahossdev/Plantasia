@@ -85,7 +85,7 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container card my-1">
+        <div className="transparent-shop">
           <Link to="/shop">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
@@ -103,9 +103,8 @@ function Detail() {
 
             <button
               disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
+              onClick={removeFromCart} className='trans'>
+              < img src='/garbagecan.gif' type="submit" className='gif' />
             </button>
             
 

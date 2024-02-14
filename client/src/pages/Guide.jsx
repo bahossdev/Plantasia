@@ -3,7 +3,7 @@ function Guide() {
   return (
     <div className="card-icon">
       <section>
-        <h2>Regular Watering</h2>
+        <h3>Regular Watering</h3>
         <p>
           "Regular watering" is a term used to describe a consistent and routine watering schedule for plants. It means providing water to plants at regular intervals or when needed, based on the specific requirements of each plant species. The frequency of watering can depend on factors such as the type of plant, its size, the environmental conditions, and the type of soil it's planted in.
         </p>
@@ -23,7 +23,7 @@ function Guide() {
       </section>
 
       <section>
-        <h2>Infrequent Watering</h2>
+        <h3>Infrequent Watering</h3>
         <p>
           "Infrequent watering" refers to a watering schedule in which plants receive water at less frequent intervals. This approach involves allowing the soil to dry out more between watering sessions. The specific definition of "infrequent" can vary based on the type of plant, its environmental conditions, and individual needs.
         </p>
@@ -43,7 +43,7 @@ function Guide() {
       </section>
 
       <section>
-        <h2>Indirect Lighting</h2>
+        <h3>Indirect Lighting</h3>
         <p>
           Indirect lighting, in the context of plant care, refers to a lighting setup where plants receive light that is not direct sunlight. Instead of placing plants in the direct path of intense sunlight, they are positioned in areas where the light is diffused or filtered. This can be achieved by placing them away from windows or using sheer curtains, blinds, or other methods to reduce the intensity of sunlight.
         </p>
@@ -63,7 +63,7 @@ function Guide() {
       </section>
 
       <section>
-        <h2>Bright, Indirect Light</h2>
+        <h3>Bright, Indirect Light</h3>
         <p>
           "Bright, indirect light" refers to a level of illumination that is well-lit but not in direct exposure to harsh, intense sunlight. This lighting condition is often considered optimal for a wide range of houseplants, as it provides sufficient light energy for photosynthesis while protecting the plants from the potential negative effects of direct sunlight.
         </p>
@@ -83,9 +83,9 @@ function Guide() {
       </section>
 
       <section>
-        <h2>Plant Care Levels</h2>
+        <h3>Plant Care Levels</h3>
         <div>
-          <h3>Beginner Plant Care Level</h3>
+          <h4>Beginner Plant Care Level</h4>
           <p>
             <strong>Definition:</strong> Beginners are individuals who are new to plant care and may have limited experience in nurturing and maintaining plants. They are just starting to explore the world of indoor gardening and may be unfamiliar with various plant species, their specific needs, and common care practices.
           </p>
@@ -94,7 +94,7 @@ function Guide() {
           </p>
         </div>
         <div>
-          <h3>Intermediate Plant Care Level</h3>
+          <h4>Intermediate Plant Care Level</h4>
           <p>
             <strong>Definition:</strong> Intermediate plant caregivers have gained some experience in tending to plants and have a moderate understanding of different species and their specific care requirements. They are comfortable with basic plant care practices and are looking to expand their knowledge and collection.
           </p>
@@ -103,7 +103,7 @@ function Guide() {
           </p>
         </div>
         <div>
-          <h3>Experienced Plant Care Level</h3>
+          <h4>Experienced Plant Care Level</h4>
           <p>
             <strong>Definition:</strong> Experienced plant caregivers are well-versed in the care of a wide range of plants. They have a deep understanding of various species, advanced care techniques, and may even have experience with more challenging or uncommon plants. They can anticipate and address plant issues effectively.
           </p>
