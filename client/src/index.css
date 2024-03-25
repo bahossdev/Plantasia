@@ -77,6 +77,11 @@ h6 {
   font-size: 1.7rem;
 }
 
+.plant-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  
+}
 nav {
   width: 100%;
   display: flex;
@@ -273,6 +278,13 @@ input:focus {
 
 .flex-row {
   display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+}
+
+.flex-row-profile {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 

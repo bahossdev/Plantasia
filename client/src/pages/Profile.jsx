@@ -30,7 +30,7 @@ function Profile() {
   ) {
     return <Navigate to="/me" />;
   }
-  
+
   const handleRemovePlant = async (plantId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -72,13 +72,14 @@ function Profile() {
   return (
     <div className="profile-container">
       <h2>Welcome, {userData?.username}!</h2>
-      <div className='transparent'>
+      <div>
         <h3>Favorite Plants</h3>
-        <div className="flex-row">
+        <div className="flex-row-profile">
           {userData?.plants?.map((plant) => (
-            <div className="transparent" key={plant._id}><img src={`/images/${plant.image}`} /> {plant.plantName}
-              {!userParam ? 
-              <img className='gif' src={garbagecanGif} data-id={plant._id} onClick={(e) => handleRemovePlant(e.target.dataset.id)} /> : ''}
+            <div className="transparent justify-center" key={plant._id}><img src={`/images/${plant.image}`} /> <text className="plant-name">{plant.plantName}</text>
+              <div>{!userParam ?
+                <img className='gif' src={garbagecanGif} data-id={plant._id} onClick={(e) => handleRemovePlant(e.target.dataset.id)} /> : ''}
+              </div>
             </div>
           ))}
         </div>
@@ -87,11 +88,11 @@ function Profile() {
 
       <div >
         <h3>My Blogs</h3>
-        <div className="flex-row">
+        <div className="flex-row-profile">
           {userData?.blogs?.map((blog) => (
-            <div className="card-icon" key={blog._id}>{blog.blogText}
-              {!userParam ? 
-              <img className='gif' src={noteDeleteGif} data-id={blog._id} onClick={(e) => handleDeleteBlog(e.target.dataset.id)} /> : ''}
+            <div className="card-icon" key={blog._id}><h4>{blog.blogText}</h4>
+              {!userParam ?
+                <img className='gif' src={noteDeleteGif} data-id={blog._id} onClick={(e) => handleDeleteBlog(e.target.dataset.id)} /> : ''}
             </div>
           ))}
         </div>
