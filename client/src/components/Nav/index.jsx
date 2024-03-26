@@ -47,16 +47,16 @@ function Nav() {
                 <Link to="/">Home</Link>
               </li>
               <li className="mx-1">
-                <Link to="/shop">Shop</Link>
+                <Link to="/plantcare">Plant Care</Link>
+              </li>
+              <li className="mx-1">
+                <Link to="/guide">Guide</Link>
               </li>
               <li className="mx-1">
                 <Link to="/forum">Forum</Link>
               </li>
               <li className="mx-1">
-                <Link to="/plantcare">Plant Care</Link>
-              </li>
-              <li className="mx-1">
-                <Link to="/guide">Guide</Link>
+                <Link to="/shop">Shop</Link>
               </li>
             </ul>
           </div>
